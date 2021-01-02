@@ -8,6 +8,9 @@
 #ifndef DRIVERS_INC_MSP432P401R_H_
 #define DRIVERS_INC_MSP432P401R_H_
 
+#include <stdint.h>
+
+
 #define FLASH_BASEADDR              0x00000000U
 #define SRAM_BASEADDR               0x20000000U
 #define ROM                         0x02000000U
@@ -50,7 +53,25 @@
 #define SPI_BASEADDR                eUSCIA0_BASEADD
 #define UART_BASEADDR               eUSCIA0_BASEADD
 
+//Peripheral register definition structure
+typedef struct{
+    uint32_t IN;
+    uint32_t OUT;
+    uint32_t DIR;
+    uint32_t REN;
+    uint32_t SEL0;
+    uint32_t SEL1;
+    uint32_t IV;
+    uint32_t SELC;
+    uint32_t IES;
+    uint32_t IE;
+    uint32_t IFG;
+}PORT_RegDef_t;
 
+#define PORT1                       ((PORT_RegDef_t*)PORT1_BASEADDR)
+#define PORT2                       ((PORT_RegDef_t*)PORT2_BASEADDR)
+#define PORT3                       ((PORT_RegDef_t*)PORT3_BASEADDR)
+#define PORT4                       ((PORT_RegDef_t*)PORT4_BASEADDR)
 
 
 
