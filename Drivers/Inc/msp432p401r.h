@@ -104,6 +104,4 @@ typedef struct{
 }eUSCI_RedDef_t;
 
 
-
-
 #endif /* DRIVERS_INC_MSP432P401R_H_ */
