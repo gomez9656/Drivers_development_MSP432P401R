@@ -1,7 +1,7 @@
 /*
  * msp432p401r.h
  *
- *  Created on: 24/09/2020
+ *  Created on: 3/01/2021
  *      Author: PC
  */
 
@@ -53,25 +53,56 @@
 #define SPI_BASEADDR                eUSCIA0_BASEADD
 #define UART_BASEADDR               eUSCIA0_BASEADD
 
-//Peripheral register definition structure
+//Peripheral register C definition structure
 typedef struct{
-    uint32_t IN;
-    uint32_t OUT;
-    uint32_t DIR;
-    uint32_t REN;
-    uint32_t SEL0;
-    uint32_t SEL1;
-    uint32_t IV;
-    uint32_t SELC;
-    uint32_t IES;
-    uint32_t IE;
-    uint32_t IFG;
+    uint16_t    IN;
+    uint16_t    OUT;
+    uint16_t    DIR;
+    uint16_t    REN;
+    uint16_t    SEL0;
+    uint16_t    SEL1;
+    uint16_t    IV;
+    uint16_t    SELC;
+    uint16_t    IES;
+    uint16_t    IE;
+    uint16_t    IFG;
 }PORT_RegDef_t;
 
-#define PORT1                       ((PORT_RegDef_t*)PORT1_BASEADDR)
-#define PORT2                       ((PORT_RegDef_t*)PORT2_BASEADDR)
-#define PORT3                       ((PORT_RegDef_t*)PORT3_BASEADDR)
-#define PORT4                       ((PORT_RegDef_t*)PORT4_BASEADDR)
+//Timer register C definition structure
+typedef struct{
+    uint16_t    CTL;
+    uint16_t    CCTL0;
+    uint16_t    CCTL1;
+    uint16_t    CCTL2;
+    uint16_t    CCTL3;
+    uint16_t    CCTL4;
+    uint16_t    R;
+    uint16_t    CCR0;
+    uint16_t    CCR1;
+    uint16_t    CCR2;
+    uint16_t    CCR3;
+    uint16_t    CCR4;
+    uint16_t    IV;
+    uint16_t    EX0;
+}TIMER_RegDef_t;
+
+
+//eUSCI register C definition structure
+typedef struct{
+    uint16_t    CTLW0;
+    uint16_t    CTLW1;
+    uint16_t    BRW;
+    uint16_t    MCTLW;
+    uint16_t    STATW;
+    uint16_t    RXBUF;
+    uint16_t    TXBUF;
+    uint16_t    ABCTL;
+    uint16_t    IRCTL;
+    uint16_t    IE;
+    uint16_t    IFG;
+    uint16_t    IV;
+}eUSCI_RedDef_t;
+
 
 
 
