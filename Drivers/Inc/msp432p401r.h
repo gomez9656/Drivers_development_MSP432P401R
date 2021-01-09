@@ -5,6 +5,7 @@
  *      Author: PC
  */
 
+//This file contains examples for peripherals driver development
 #ifndef DRIVERS_INC_MSP432P401R_H_
 #define DRIVERS_INC_MSP432P401R_H_
 
