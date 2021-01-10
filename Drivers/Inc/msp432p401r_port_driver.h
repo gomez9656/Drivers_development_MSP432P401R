@@ -70,13 +70,41 @@ void PORT_ToggleOutputPin(PORT_RegDef_t *pPORTx, uint8_t PinNumber);
 void PORT_IRQConfig(uint8_t IRQNumber, uint8_t IRQPriority, uint8_t EnorDi);
 void PORT_IRQHandling(uint8_t PinNumber);
 
+/* Macro for PORT input */
+#define PORT_IN     0
+#define PORT_OUT    1
 
+/* Macro for PORT output */
+#define PORT_OUT_LOW    0
+#define PORT_OUT_HIGH   1
 
-/* Macros for port */
-#define PORT_MODE_IN    1
-#define PORT_MODE_OUT   0
-#define PORT_MODE_
+/* Macro for PORT DIR */
+#define PORT_INPUT_DIR  0
+#define PORT_OUTPUT_DIR 1
 
+/* Macro for PORT pull up or pull down registers */
+#define INPUT       0
+#define INPUT_PD    1
+#define INPUT_PU    2
+#define OUTPUT      3
+
+/* Macro for PORT Drive strength */
+#define REGULAR_DS  0
+#define HIGH_DS     1
+
+/* Macro for PORT function select */
+#define IO          0
+#define PRIMARY     1
+#define SECONDARY   2
+#define TERTIARY    3
+
+/* Macro for PORT interrupt */
+#define NO_INTERRUPT_PENDING    0
+#define INTERRUPT_PENDING       1
+
+/* Macro for PORT enabling interrupt */
+#define INTERRUPT_DISABLED       0
+#define INTERRUPT_ENABLED        1
 
 
 #endif /* DRIVERS_INC_MSP432P401R_PORT_DRIVER_H_ */
