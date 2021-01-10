@@ -58,20 +58,7 @@
 #define SPI_BASEADDR                eUSCIA0_BASEADD
 #define UART_BASEADDR               eUSCIA0_BASEADD
 
-//Peripheral register C definition structure
-typedef struct{
-    uint16_t    IN;
-    uint16_t    OUT;
-    uint16_t    DIR;
-    uint16_t    REN;
-    uint16_t    SEL0;
-    uint16_t    SEL1;
-    uint16_t    IV;
-    uint16_t    SELC;
-    uint16_t    IES;
-    uint16_t    IE;
-    uint16_t    IFG;
-}PORT_RegDef_t;
+
 
 //Timer register C definition structure
 typedef struct{
@@ -116,6 +103,5 @@ typedef struct{
 #define RESET           DISABLE
 #define GPIO_PIN_SET    SET
 #define GPIO_PIN_RESET  RESET
-
 
 #endif /* DRIVERS_INC_MSP432P401R_H_ */

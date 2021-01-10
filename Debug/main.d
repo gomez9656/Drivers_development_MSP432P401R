@@ -12,6 +12,7 @@ main.obj: C:/ti/ccs1010/ccs/tools/compiler/ti-cgt-arm_20.2.1.LTS/include/sys/_ty
 main.obj: C:/ti/ccs1010/ccs/tools/compiler/ti-cgt-arm_20.2.1.LTS/include/machine/_types.h
 main.obj: C:/ti/ccs1010/ccs/tools/compiler/ti-cgt-arm_20.2.1.LTS/include/machine/_stdint.h
 main.obj: C:/ti/ccs1010/ccs/tools/compiler/ti-cgt-arm_20.2.1.LTS/include/sys/_stdint.h
+main.obj: ../Drivers/Inc/msp432p401r_port_driver.h
 
 ../main.c: 
 ../Drivers/Inc/msp432p401r.h: 
@@ -25,3 +26,4 @@ C:/ti/ccs1010/ccs/tools/compiler/ti-cgt-arm_20.2.1.LTS/include/sys/_types.h:
 C:/ti/ccs1010/ccs/tools/compiler/ti-cgt-arm_20.2.1.LTS/include/machine/_types.h: 
 C:/ti/ccs1010/ccs/tools/compiler/ti-cgt-arm_20.2.1.LTS/include/machine/_stdint.h: 
 C:/ti/ccs1010/ccs/tools/compiler/ti-cgt-arm_20.2.1.LTS/include/sys/_stdint.h: 
+../Drivers/Inc/msp432p401r_port_driver.h: 

@@ -13,7 +13,6 @@
 #include "msp432p401r.h"
 
 /*This is a configuration structure for a PORT pin */
-
 typedef struct{
 
     uint8_t PORT_PinNumber;
@@ -24,13 +23,29 @@ typedef struct{
     uint8_t PORT_PinAltFunMode;
 }PORT_PinConfig_t;
 
-/* This is a Handle structure for a PORT pin */
+//Peripheral register C definition structure
+typedef struct{
+    uint16_t    IN;
+    uint16_t    OUT;
+    uint16_t    DIR;
+    uint16_t    REN;
+    uint16_t    SEL0;
+    uint16_t    SEL1;
+    uint16_t    IV;
+    uint16_t    SELC;
+    uint16_t    IES;
+    uint16_t    IE;
+    uint16_t    IFG;
+}PORT_RegDef_t;
 
+
+/* This is a Handle structure for a PORT pin */
 typedef struct{
 
     PORT_RegDef_t *pPORTx;           //Base address for PORT
     PORT_PinConfig_t PORT_PinConfig;
 }PORT_Handle_t;
+
 
 
 /* API supported by this driver */
@@ -57,6 +72,10 @@ void PORT_IRQHandling(uint8_t PinNumber);
 
 
 
+/* Macros for port */
+#define PORT_MODE_IN    1
+#define PORT_MODE_OUT   0
+#define PORT_MODE_
 
 
 
