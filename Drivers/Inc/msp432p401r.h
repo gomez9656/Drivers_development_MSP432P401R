@@ -5,7 +5,11 @@
  *      Author: PC
  */
 
-//This file contains examples for peripherals driver development
+/* This file contains examples for peripherals driver development. The idea
+ * whit this header file is that the different peripherals can access this header
+ *
+ */
+
 #ifndef DRIVERS_INC_MSP432P401R_H_
 #define DRIVERS_INC_MSP432P401R_H_
 
@@ -106,10 +110,12 @@ typedef struct{
 
 
 /* Some generic Macros */
-#define ENABLE  1
-#define DISABLE 0
-#define SET     ENABLE
-#define RESET   DISABLE
+#define ENABLE          1
+#define DISABLE         0
+#define SET             ENABLE
+#define RESET           DISABLE
+#define GPIO_PIN_SET    SET
+#define GPIO_PIN_RESET  RESET
 
 
 #endif /* DRIVERS_INC_MSP432P401R_H_ */
