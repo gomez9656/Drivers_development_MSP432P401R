@@ -26,7 +26,7 @@ typedef struct{
 //Peripheral register C definition structure
 typedef struct{
     uint16_t    IN;
-    uint16_t    OUT;
+    uint16_t    OUT;  /*possibles values from @Macro for PORT output*/
     uint16_t    DIR;
     uint16_t    REN;
     uint16_t    SEL0;

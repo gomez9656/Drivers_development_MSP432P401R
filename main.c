@@ -11,4 +11,8 @@ void main(void)
         pPORT1->OUT |= (0 << 0);
         pPORT1->DIR |= (1 << 0);
         pPORT1->OUT |= (1 << 0);
+
+        pPORT1->OUT = PORT_OUT_LOW << 0;
+        pPORT1->DIR = PORT_OUTPUT_DIR << 0;
+        pPORT1->OUT = PORT_OUT_HIGH << 0;
 }
