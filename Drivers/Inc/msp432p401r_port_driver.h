@@ -38,7 +38,6 @@ typedef struct{
     uint16_t    IFG;
 }PORT_RegDef_t;
 
-
 /* This is a Handle structure for a PORT pin */
 typedef struct{
 
@@ -116,6 +115,7 @@ void PORT_IRQHandling(uint8_t PinNumber);
 #define PORT_PIN_6      6
 #define PORT_PIN_7      7
 #define PORT_PIN_8      8
+
 
 
 #endif /* DRIVERS_INC_MSP432P401R_PORT_DRIVER_H_ */
