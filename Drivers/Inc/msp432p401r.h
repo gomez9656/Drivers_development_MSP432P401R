@@ -105,4 +105,11 @@ typedef struct{
 }eUSCI_RedDef_t;
 
 
+/* Some generic Macros */
+#define ENABLE  1
+#define DISABLE 0
+#define SET     ENABLE
+#define RESET   DISABLE
+
+
 #endif /* DRIVERS_INC_MSP432P401R_H_ */
