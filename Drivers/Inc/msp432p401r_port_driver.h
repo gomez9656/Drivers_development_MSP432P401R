@@ -25,16 +25,16 @@ typedef struct{
 
 //Peripheral register C definition structure
 typedef struct{
-    uint16_t    IN;
-    uint16_t    OUT;  /*possibles values from @Macro for PORT output*/
-    uint16_t    DIR;
-    uint16_t    REN;
+    uint16_t    IN;     /*possibles values from  Macro for PORT input */
+    uint16_t    OUT;    /*possibles values from @Macro for PORT output*/
+    uint16_t    DIR;    /*possibles values from  Macro for PORT DIRt */
+    uint16_t    REN;    /*possibles values from  Macro for PORT pull up or pull down registers  */
     uint16_t    SEL0;
     uint16_t    SEL1;
     uint16_t    IV;
     uint16_t    SELC;
     uint16_t    IES;
-    uint16_t    IE;
+    uint16_t    IE;     /*possibles values from Macro for PORT enabling interrupt */
     uint16_t    IFG;
 }PORT_RegDef_t;
 
@@ -105,6 +105,17 @@ void PORT_IRQHandling(uint8_t PinNumber);
 /* Macro for PORT enabling interrupt */
 #define INTERRUPT_DISABLED       0
 #define INTERRUPT_ENABLED        1
+
+/* PORT pin numbers */
+#define PORT_PIN_0      0
+#define PORT_PIN_1      1
+#define PORT_PIN_2      2
+#define PORT_PIN_3      3
+#define PORT_PIN_4      4
+#define PORT_PIN_5      5
+#define PORT_PIN_6      6
+#define PORT_PIN_7      7
+#define PORT_PIN_8      8
 
 
 #endif /* DRIVERS_INC_MSP432P401R_PORT_DRIVER_H_ */
