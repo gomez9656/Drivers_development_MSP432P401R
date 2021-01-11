@@ -43,6 +43,7 @@ uint8_t PORT_ReadFromInputPin(PORT_RegDef_t *pPORTx, uint8_t PinNumber){
 }
 
 uint16_t PORT_ReadFromInputPort(PORT_RegDef_t *pPORTx){
+    return 0;
 }
 
 void PORT_WriteToOutputPin(PORT_RegDef_t *pPORTx, uint8_t PinNumber, uint8_t Value){
@@ -57,11 +58,13 @@ void PORT_WriteToOutputPin(PORT_RegDef_t *pPORTx, uint8_t PinNumber, uint8_t Val
 }
 
 void PORT_WriteToOutputPort(PORT_RegDef_t *pPORTx, uint16_t Value){
-
 }
+
 void PORT_ToggleOutputPin(PORT_RegDef_t *pPORTx, uint8_t PinNumber){
 
+    pPORTx->OUT ^= (1 << PinNumber); //XOR to toggle the bit position
 }
+
 void PORT_IRQConfig(uint8_t IRQNumber, uint8_t IRQPriority, uint8_t EnorDi){
 
 }

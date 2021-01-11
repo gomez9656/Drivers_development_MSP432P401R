@@ -24,5 +24,14 @@ void main(void)
         pPORT1->DIR |= (1 << 0);
         PORT_WriteToOutputPin(pPORT1, PORT_PIN_0, PORT_PIN_SET);
 
+        unsigned int i;
+        while(1){
 
+                //Toggle P1.0 between HIGH or LOW using ^(XOR)
+                PORT_ToggleOutputPin(pPORT1, PORT_PIN_0);
+
+
+                //Without a delay, human eyes can't see the LED toggling.
+                for( i = 0; i < 20000; i++);
+            }
 }
