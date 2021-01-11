@@ -16,7 +16,13 @@ void main(void)
         pPORT1->DIR |= (1 << 0);
         pPORT1->OUT |= (1 << 0);
 
-        pPORT1->OUT = PORT_OUT_LOW << PORT_PIN_0;
-        pPORT1->DIR = PORT_OUTPUT_DIR << PORT_PIN_0;
-        pPORT1->OUT = PORT_OUT_HIGH << PORT_PIN_0;
+        pPORT1->OUT |= PORT_OUT_LOW << PORT_PIN_0;
+        pPORT1->DIR |= PORT_OUTPUT_DIR << PORT_PIN_0;
+        pPORT1->OUT |= PORT_OUT_HIGH << PORT_PIN_0;
+
+
+        pPORT1->DIR |= (1 << 0);
+        PORT_WriteToOutputPin(pPORT1, PORT_PIN_0, PORT_PIN_SET);
+
+
 }

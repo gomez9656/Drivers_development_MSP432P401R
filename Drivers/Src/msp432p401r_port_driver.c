@@ -37,15 +37,25 @@ void PORT_DeInit(PORT_RegDef_t *pPORTx){
  * return: uint8_t means 1 or 0
  */
 uint8_t PORT_ReadFromInputPin(PORT_RegDef_t *pPORTx, uint8_t PinNumber){
-
+    uint8_t value;
+    value = (uint8_t)((pPORTx->OUT >> PinNumber) & 0x00000001);
+    return value;
 }
 
 uint16_t PORT_ReadFromInputPort(PORT_RegDef_t *pPORTx){
-
 }
+
 void PORT_WriteToOutputPin(PORT_RegDef_t *pPORTx, uint8_t PinNumber, uint8_t Value){
 
+    if(Value == PORT_PIN_SET){
+
+        pPORTx->OUT |= (1 << PinNumber); //Makes PinNumber as 1
+    }else{
+
+        pPORTx->OUT &= (1 << PinNumber); //Makes PinNumber as 0, or clears the bit position
+    }
 }
+
 void PORT_WriteToOutputPort(PORT_RegDef_t *pPORTx, uint16_t Value){
 
 }

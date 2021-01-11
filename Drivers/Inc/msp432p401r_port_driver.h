@@ -29,8 +29,8 @@ typedef struct{
     uint16_t    OUT;    /*possibles values from @Macro for PORT output*/
     uint16_t    DIR;    /*possibles values from  Macro for PORT DIRt */
     uint16_t    REN;    /*possibles values from  Macro for PORT pull up or pull down registers  */
-    uint16_t    SEL0;
-    uint16_t    SEL1;
+    uint16_t    SEL0;   /*possibles values from Macro for PORT SEL0 */
+    uint16_t    SEL1;   /*possibles values from Macro for PORT SEL1 */
     uint16_t    IV;
     uint16_t    SELC;
     uint16_t    IES;
@@ -90,6 +90,14 @@ void PORT_IRQHandling(uint8_t PinNumber);
 /* Macro for PORT Drive strength */
 #define REGULAR_DS  0
 #define HIGH_DS     1
+
+/* Macro for PORT SEL0 */
+#define SEL0_UP    1
+#define SEL0_DOWN  0
+
+/* Macro for PORT SEL1 */
+#define SEL1_UP    1
+#define SEL1_DOWN  0
 
 /* Macro for PORT function select */
 #define IO          0

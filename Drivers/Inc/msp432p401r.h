@@ -101,7 +101,7 @@ typedef struct{
 #define DISABLE         0
 #define SET             ENABLE
 #define RESET           DISABLE
-#define GPIO_PIN_SET    SET
-#define GPIO_PIN_RESET  RESET
+#define PORT_PIN_SET    SET
+#define PORT_PIN_RESET  RESET
 
 #endif /* DRIVERS_INC_MSP432P401R_H_ */
