@@ -32,7 +32,7 @@ void PORT_init_DIR(PORT_RegDef_t *pPORTx, uint8_t PinNumber, uint8_t Value){
         pPORTx->DIR |= (1 << PinNumber); //Makes PinNumber as 1
     }else{
 
-        pPORTx->DIR = (0 << PinNumber); //Makes PinNumber as 0, or clears the bit position
+        pPORTx->DIR &= ~(1 << PinNumber); //Makes PinNumber as 0, or clears the bit position
     }
 }
 
@@ -74,7 +74,7 @@ void PORT_WriteToOutputPin(PORT_RegDef_t *pPORTx, uint8_t PinNumber, uint8_t Val
         pPORTx->OUT |= (1 << PinNumber); //Makes PinNumber as 1
     }else{
 
-        pPORTx->OUT = (0 << PinNumber); //Makes PinNumber as 0, or clears the bit position
+        pPORTx->OUT &= ~(1 << PinNumber); //Makes PinNumber as 0, or clears the bit position
     }
 }
 

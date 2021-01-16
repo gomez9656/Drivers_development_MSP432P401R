@@ -20,8 +20,13 @@ void main(void)
     pPORT1->DIR |= 1 << 1;
     pPORT1->DIR &= ~(1 << 1);
 
+    PORT_init_DIR(pPORT1, PORT_PIN_2, PORT_OUTPUT_DIR);
+    PORT_init_DIR(pPORT1, PORT_PIN_2, PORT_INPUT_DIR);
+
     PORT_init_DIR(pPORT1, PORT_PIN_2, PORT_INPUT_DIR);
     PORT_init_DIR(pPORT1, PORT_PIN_2, PORT_OUTPUT_DIR);
+    PORT_init_DIR(pPORT1, PORT_PIN_2, PORT_INPUT_DIR);
+
 
 
     PORT_WriteToOutputPin(pPORT1, PORT_PIN_0, PORT_OUT_HIGH);
