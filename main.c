@@ -13,16 +13,19 @@ void main(void)
     PORT_RegDef_t *pPORT1 = (PORT_RegDef_t*)PORT1;
 
 
-        pPORT1->DIR |= (1 << 0);
-        pPORT1->OUT = ( 0 << 0);
+    pPORT1->DIR |= 0 << 3;
+    pPORT1->DIR |= 1 << 3;
 
-        pPORT1->DIR |= (1 << 1);
-        pPORT1->OUT = (1 << 1);
-        pPORT1->OUT = (0 << 1);
+    pPORT1->DIR |= 0 << 1;
+    pPORT1->DIR |= 1 << 1;
+    pPORT1->DIR |= 0 << 1;
 
-        PORT_init_DIR(pPORT1, PORT_PIN_0,PORT_INPUT_DIR);
-        PORT_WriteToOutputPin(pPORT1, PORT_PIN_0, PORT_OUT_HIGH);
-        PORT_WriteToOutputPin(pPORT1, PORT_PIN_0, PORT_OUT_LOW);
+    PORT_init_DIR(pPORT1, PORT_PIN_2, PORT_INPUT_DIR);
+    PORT_init_DIR(pPORT1, PORT_PIN_2, PORT_OUTPUT_DIR);
+
+
+    PORT_WriteToOutputPin(pPORT1, PORT_PIN_0, PORT_OUT_HIGH);
+    PORT_WriteToOutputPin(pPORT1, PORT_PIN_0, PORT_OUT_LOW);
 
         unsigned int i;
         while(1){
