@@ -32,6 +32,7 @@ void main(void)
     PORT_WriteToOutputPin(pPORT1, PORT_PIN_0, PORT_OUT_HIGH);
     PORT_WriteToOutputPin(pPORT1, PORT_PIN_0, PORT_OUT_LOW);
 
+    PORT_init_DIR(pPORT1, PORT_PIN_0, PORT_OUTPUT_DIR);
         unsigned int i;
         while(1){
 
@@ -40,6 +41,6 @@ void main(void)
 
 
                 //Without a delay, human eyes can't see the LED toggling.
-                //for( i = 0; i < 20000; i++);
+                for( i = 0; i < 20000; i++);
             }
 }
