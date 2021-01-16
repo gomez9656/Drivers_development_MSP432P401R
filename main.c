@@ -24,6 +24,7 @@ void main(void)
         printf("wuju");
     }
 
+
     while(1){
 /*
         if(S1_PRESSED){
