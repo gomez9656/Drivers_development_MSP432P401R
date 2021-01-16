@@ -52,9 +52,9 @@ void PORT_DeInit(PORT_RegDef_t *pPORTx){
  * param: Base address of the port and the pin number and pin number
  * return: uint8_t means 1 or 0
  */
-uint8_t PORT_ReadFromInputPin(PORT_RegDef_t *pPORTx, uint8_t PinNumber){
-    uint8_t value;
-    value = (uint8_t)((pPORTx->OUT >> PinNumber) & 0x00000001);
+int PORT_ReadFromInputPin(PORT_RegDef_t *pPORTx, uint8_t PinNumber){
+    int value;
+    value = !((pPORTx->IN >> PinNumber) & 0x00000001);
     return value;
 }
 

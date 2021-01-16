@@ -57,7 +57,7 @@ void PORT_DeInit(PORT_RegDef_t *pPORTx); //This functions should work to DeInit 
 
 /*Data read and write */
 void PORT_init_DIR(PORT_RegDef_t *pPORTx, uint8_t PinNumber, uint8_t Value);
-uint8_t PORT_ReadFromInputPin(PORT_RegDef_t *pPORTx, uint8_t PinNumber); //8 bits because the return value is 0 or 1
+int PORT_ReadFromInputPin(PORT_RegDef_t *pPORTx, uint8_t PinNumber); //8 bits because the return value is 0 or 1
 uint16_t PORT_ReadFromInputPort(PORT_RegDef_t *pPORTx); // 16 bits because is a port
 void PORT_WriteToOutputPin(PORT_RegDef_t *pPORTx, uint8_t PinNumber, uint8_t Value);
 void PORT_WriteToOutputPort(PORT_RegDef_t *pPORTx, uint16_t Value);
