@@ -52,11 +52,11 @@ typedef struct{
 void PORT_PeriClockControl(void); //MSP does not need this
 
 /* Init and DeInit */
-void PORT_init(PORT_Handle_t *pPORTHandle);
+void PORT_Init(PORT_Handle_t *pPORTHandle);
 void PORT_DeInit(PORT_RegDef_t *pPORTx); //This functions should work to DeInit thw whole peripheral
 
 /*Data read and write */
-void PORT_init_DIR(PORT_RegDef_t *pPORTx, uint8_t PinNumber, uint8_t Value);
+void PORT_InitDir(PORT_RegDef_t *pPORTx, uint8_t PinNumber, uint8_t InputOutputMode);
 int PORT_ReadFromInputPin(PORT_RegDef_t *pPORTx, uint8_t PinNumber); //8 bits because the return value is 0 or 1
 uint16_t PORT_ReadFromInputPort(PORT_RegDef_t *pPORTx); // 16 bits because is a port
 void PORT_WriteToOutputPin(PORT_RegDef_t *pPORTx, uint8_t PinNumber, uint8_t Value);

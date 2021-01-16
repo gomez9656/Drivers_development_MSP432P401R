@@ -16,24 +16,37 @@
  * param: pPORTHandle
  * return: void
  */
-void PORT_init(PORT_Handle_t *pPORTHandle){
+void PORT_Init(PORT_Handle_t *pPORTHandle){
 
-    PORT_init_DIR(pPORTHandle->pPORTx, pPORTHandle->PORT_PinConfig.PORT_PinNumber, pPORTHandle->PORT_PinConfig.PORT_PinMode);
+    PORT_InitDir(pPORTHandle->pPORTx, pPORTHandle->PORT_PinConfig.PORT_PinNumber, pPORTHandle->PORT_PinConfig.PORT_PinMode);
 }
 
 /* PORT_init_DIR
  * brief: to set pin as output or input
- * param: Base address of the port, pin number and value from @Macro for PORT DIR
+ * param:
+ *  Base address of the port, pin number and
+ *  InputMode from @Macro for PORT pull up or pull down registers
  * return: void
  */
-void PORT_init_DIR(PORT_RegDef_t *pPORTx, uint8_t PinNumber, uint8_t Value){
+void PORT_InitDir(PORT_RegDef_t *pPORTx, uint8_t PinNumber, uint8_t InputOutputMode){
 
-    if(Value == PORT_OUTPUT_DIR){
+    if(InputOutputMode == OUTPUT){
 
         pPORTx->DIR |= (1 << PinNumber); //Makes PinNumber as 1
     }else{
 
         pPORTx->DIR &= ~(1 << PinNumber); //Makes PinNumber as 0, or clears the bit position
+
+        if(InputOutputMode == INPUT_PU){//Pull up is REN = 1 and OUT = 1
+
+            pPORTx->OUT |= (1 << PinNumber);
+            pPORTx->REN |= (1 << PinNumber);
+        }
+        if(InputOutputMode == INPUT_PD){ //Pull down is REN = 1 and OUT = 0
+
+            pPORTx->OUT &= ~(1 << PinNumber); //Makes PinNumber as 0, or clears the bit position
+            pPORTx->REN |= (1 << PinNumber);
+        }
     }
 }
 
