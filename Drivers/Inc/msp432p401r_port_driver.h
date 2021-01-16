@@ -15,8 +15,8 @@
 /*This is a configuration structure for a PORT pin */
 typedef struct{
 
-    uint8_t PORT_PinNumber;
-    uint8_t PORT_PinMode;
+    uint8_t PORT_PinNumber; //Posibles values from @PORT pin numbers
+    uint8_t PORT_PinMode;   //Posibles values from @Macro for PORT DIR
     uint8_t PORT_PinSpeed;
     uint8_t PORT_PinPuPdControl;
     uint8_t PORT_PinOPType;

@@ -18,6 +18,7 @@
  */
 void PORT_init(PORT_Handle_t *pPORTHandle){
 
+    PORT_init_DIR(pPORTHandle->pPORTx, pPORTHandle->PORT_PinConfig.PORT_PinNumber, pPORTHandle->PORT_PinConfig.PORT_PinMode);
 }
 
 /* PORT_init_DIR

@@ -12,35 +12,14 @@ void main(void)
     //PORT_RegDef_t *pPORT1 = (PORT_RegDef_t*)0x40004C00;//Pointer to PORT1 address
     PORT_RegDef_t *pPORT1 = (PORT_RegDef_t*)PORT1;
 
-    pPORT1->DIR |= 1 << 3;
-    pPORT1->DIR &= ~(1 << 3);
+    PORT_PinConfig_t PIN_LED;
+    PIN_LED.PORT_PinNumber = PORT_PIN_0;
+    PIN_LED.PORT_PinMode = PORT_INPUT_DIR;
 
+    PORT_Handle_t PORT1_Handle;
+    PORT1_Handle.PORT_PinConfig = PIN_LED;
+    PORT1_Handle.pPORTx = pPORT1;
 
-    pPORT1->DIR &= ~(1 << 1);
-    pPORT1->DIR |= 1 << 1;
-    pPORT1->DIR &= ~(1 << 1);
+    PORT_init(&PORT1_Handle);
 
-    PORT_init_DIR(pPORT1, PORT_PIN_2, PORT_OUTPUT_DIR);
-    PORT_init_DIR(pPORT1, PORT_PIN_2, PORT_INPUT_DIR);
-
-    PORT_init_DIR(pPORT1, PORT_PIN_2, PORT_INPUT_DIR);
-    PORT_init_DIR(pPORT1, PORT_PIN_2, PORT_OUTPUT_DIR);
-    PORT_init_DIR(pPORT1, PORT_PIN_2, PORT_INPUT_DIR);
-
-
-
-    PORT_WriteToOutputPin(pPORT1, PORT_PIN_0, PORT_OUT_HIGH);
-    PORT_WriteToOutputPin(pPORT1, PORT_PIN_0, PORT_OUT_LOW);
-
-    PORT_init_DIR(pPORT1, PORT_PIN_0, PORT_OUTPUT_DIR);
-        unsigned int i;
-        while(1){
-
-                //Toggle P1.0 between HIGH or LOW using ^(XOR)
-                PORT_ToggleOutputPin(pPORT1, PORT_PIN_0);
-
-
-                //Without a delay, human eyes can't see the LED toggling.
-                for( i = 0; i < 20000; i++);
-            }
 }
