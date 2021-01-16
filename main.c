@@ -12,13 +12,13 @@ void main(void)
     //PORT_RegDef_t *pPORT1 = (PORT_RegDef_t*)0x40004C00;//Pointer to PORT1 address
     PORT_RegDef_t *pPORT1 = (PORT_RegDef_t*)PORT1;
 
-
-    pPORT1->DIR |= 0 << 3;
     pPORT1->DIR |= 1 << 3;
+    pPORT1->DIR &= ~(1 << 3);
 
-    pPORT1->DIR |= 0 << 1;
+
+    pPORT1->DIR &= ~(1 << 1);
     pPORT1->DIR |= 1 << 1;
-    pPORT1->DIR |= 0 << 1;
+    pPORT1->DIR &= ~(1 << 1);
 
     PORT_init_DIR(pPORT1, PORT_PIN_2, PORT_INPUT_DIR);
     PORT_init_DIR(pPORT1, PORT_PIN_2, PORT_OUTPUT_DIR);
