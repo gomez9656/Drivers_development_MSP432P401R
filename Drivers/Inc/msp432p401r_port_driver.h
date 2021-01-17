@@ -23,19 +23,33 @@ typedef struct{
     uint8_t PORT_PinAltFunMode;
 }PORT_PinConfig_t;
 
-//Peripheral register C definition structure
+/*Peripheral register C definition structure
+ * You can check this in the page 683 of the reference manual
+ */
 typedef struct{
-    uint16_t    IN;     /*possibles values from  Macro for PORT input */
-    uint16_t    OUT;    /*possibles values from @Macro for PORT output*/
-    uint16_t    DIR;    /*possibles values from  Macro for PORT DIRt */
-    uint16_t    REN;    /*possibles values from  Macro for PORT pull up or pull down registers  */
-    uint16_t    SEL0;   /*possibles values from Macro for PORT SEL0 */
-    uint16_t    SEL1;   /*possibles values from Macro for PORT SEL1 */
+    uint8_t     IN;         /*possibles values from @Macro for PORT input */
+    uint8_t     RESERVED;
+    uint8_t     OUT;        /*possibles values from @Macro for PORT output*/
+    uint8_t     RESERVED1;
+    uint8_t     DIR;        /*possibles values from @Macro for PORT DIRt */
+    uint8_t     RESERVED2;
+    uint8_t     REN;        /*possibles values from @Macro for PORT pull up or pull down registers  */
+    uint8_t     RESERVED3;
+    uint8_t     DS;
+    uint8_t     RESERVED4;
+    uint8_t     SEL0;       /*possibles values from @Macro for PORT SEL0 */
+    uint8_t     RESERVED5;
+    uint8_t     SEL1;       /*possibles values from @Macro for PORT SEL1 */
+    uint8_t     RESERVED6;
     uint16_t    IV;
-    uint16_t    SELC;
-    uint16_t    IES;
-    uint16_t    IE;     /*possibles values from Macro for PORT enabling interrupt */
-    uint16_t    IFG;
+    uint8_t     RESERVED7[6];
+    uint8_t     SELC;
+    uint8_t     RESERVED8;
+    uint8_t     IES;        /*Possibles values from @Macro for IES register*/
+    uint8_t     RESERVED9;
+    uint8_t     IE;         /*possibles values from @Macro for PORT enabling interrupt */
+    uint8_t     RESERVED10;
+    uint8_t    IFG;         /*Possibles values from @Macro for IFG register */
 }PORT_RegDef_t;
 
 /* This is a Handle structure for a PORT pin */
@@ -64,8 +78,8 @@ void PORT_WriteToOutputPort(PORT_RegDef_t *pPORTx, uint16_t Value);
 void PORT_ToggleOutputPin(PORT_RegDef_t *pPORTx, uint8_t PinNumber);
 
 /*IRQ Configuration and handle */
-
-void PORT_IRQConfig(uint8_t IRQNumber, uint8_t IRQPriority, uint8_t EnorDi);
+void InitInterrupt(PORT_RegDef_t *pPORTx, uint8_t PinNumber, uint8_t IEMode);
+void PORT_IRQConfig(uint8_t IRQNumber, uint8_t IRQPriority, uint8_t EnOrDi);
 void PORT_IRQHandling(uint8_t PinNumber);
 
 /* Macro for PORT input */
@@ -104,13 +118,17 @@ void PORT_IRQHandling(uint8_t PinNumber);
 #define SECONDARY   2
 #define TERTIARY    3
 
-/* Macro for PORT interrupt */
-#define NO_INTERRUPT_PENDING    0
-#define INTERRUPT_PENDING       1
+/* Macro for IES register*/
+#define HIGH_TO_LOW     1
+#define LOW_TO_HIGH     0
 
-/* Macro for PORT enabling interrupt */
-#define INTERRUPT_DISABLED       0
-#define INTERRUPT_ENABLED        1
+/* Macro for IE register */
+#define INTERRUPT_ENABLED   1
+#define INTERRUPT_DISABLED  0
+
+/* Macro for IFG register */
+#define INTERRUPT_PENDING       1
+#define NO_INTERRUPT_PENDING    0
 
 /* PORT pin numbers */
 #define PORT_PIN_0      0

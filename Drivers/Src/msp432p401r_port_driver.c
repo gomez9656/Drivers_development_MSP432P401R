@@ -105,7 +105,28 @@ void PORT_ToggleOutputPin(PORT_RegDef_t *pPORTx, uint8_t PinNumber){
     pPORTx->OUT ^= (1 << PinNumber); //XOR to toggle the bit position
 }
 
-void PORT_IRQConfig(uint8_t IRQNumber, uint8_t IRQPriority, uint8_t EnorDi){
+/*  InitInterrupt
+ *  brief: API for init interrupt in a given pin
+ *  param: port base addresss, pin number and IEMode from
+ *  @Macro for PORT enabling interrupt
+ *  return 0
+ */
+void InitInterrupt(PORT_RegDef_t *pPORTx, uint8_t PinNumber, uint8_t IEMode){
+
+    if(IEMode == HIGH_TO_LOW){
+
+        pPORTx->IES |= (HIGH_TO_LOW << PinNumber); // Set IES to 1
+    }
+    else{
+
+        pPORTx->IES &= ~(LOW_TO_HIGH << PinNumber); // Set IES to 0
+    }
+
+    pPORTx->IFG &= ~(1 << PinNumber); //Clear all portx interrupt flags
+    pPORTx->IE |= (INTERRUPT_ENABLED << PinNumber);    //Enable interrupt for PinNumber
+}
+
+void PORT_IRQConfig(uint8_t IRQNumber, uint8_t IRQPriority, uint8_t EnOrDi){
 
 }
 void PORT_IRQHandling(uint8_t PinNumber){
