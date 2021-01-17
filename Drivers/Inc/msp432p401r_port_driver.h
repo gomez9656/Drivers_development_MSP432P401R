@@ -49,7 +49,7 @@ typedef struct{
 
 /* API supported by this driver */
 
-void PORT_PeriClockControl(void); //MSP does not need this
+void PORT_PeriClockControl(void); //MSP does not need this but it can be useful in other micros
 
 /* Init and DeInit */
 void PORT_Init(PORT_Handle_t *pPORTHandle);
