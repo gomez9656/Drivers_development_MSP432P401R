@@ -10,4 +10,19 @@ void main(void)
 {
     PORT_RegDef_t *pPORT1 = (PORT_RegDef_t*)PORT1;
 
+    PORT_InitDir(pPORT1, PORT_PIN_0, OUTPUT);
+    PORT_InitDir(pPORT1, PORT_PIN_1, INPUT_PU);
+
+    int value;
+    unsigned int i;
+    while(1){
+
+        value = PORT_ReadFromInputPin(pPORT1, PORT_PIN_1);
+
+        if(value){
+            PORT_ToggleOutputPin(pPORT1, PORT_PIN_0);
+        }
+        for(i = 0; i < 20000; i++);
+    }
+
 }
